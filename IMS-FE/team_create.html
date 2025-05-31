@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Team</title>
+    <style>
+        .heading{
+            margin: 0 auto;
+        }
+        .team-form{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Add Player To IMS</h1>
+    </div>
+    <div class="team-form">
+        <form method="post" action="http://127.0.0.1:8000/teams"> <!--sending to '/players' API, server on same machine so loopback address-->
+            Name : <input type="text" placeholder="Enter Team Name"/> <br/>
+            Created : <input type="number" placeholder="Enter The Year when team was created"/> <br/>
+            Wins : <input type="number" placeholder="Enter No. of Team's  Wins"/> <br/>
+            Slogan : <input type="text" placeholder="Enter Team's Slogan"/> <br/>
+            Owner : <input type="text" placeholder="Enter Team's Owner"/> <br/>
+            Coach : <input type="text" placeholder="Enter Team's Coach"/> <br/>
+            Primary Color : <input type="text" placeholder="Enter Team's Color"/> <br/>
+            <button type="submit">Add Team</button>
+        </form>
+    </div>
+    
+</body>
+</html>

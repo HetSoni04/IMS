@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup to IMS</title>
+    <style>
+        .heading{
+            margin: 0 auto;
+        }
+        .signup-form{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>Signup To IMS</h1>
+    </div>
+    <div class="signup-form">
+        <form method="post" action="http://127.0.0.1:8000/users"> <!--sending to '/users' API, server on same machine so loopback address-->
+            Name : <input type="text" placeholder="Enter Your Name"/> <br/>
+            Email : <input type="email" placeholder="Enter Your Email"/> <br/>
+            Password : <input type="password" placeholder="Enter Your Password"/> <br/>
+            Phone No : <input type="number" placeholder="Enter Your Phone No"/> <br/>
+            <button type="submit">SignUp</button>
+        </form>
+    </div>
+    
+</body>
+</html>

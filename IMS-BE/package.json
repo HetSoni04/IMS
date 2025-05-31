@@ -1,0 +1,16 @@
+{
+  "name": "ims-be",
+  "version": "1.0.0",
+  "description": "This is IPL Management System's Backend.",
+  "license": "ISC",
+  "author": "Het Soni",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
