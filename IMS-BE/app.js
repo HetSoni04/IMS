@@ -4,10 +4,20 @@
 //including Express to accpets and restrict requests coming to our APIs : /users, /players, /teams
 
 const libExpress = require("express")
+const mongoose = require("mongoose")
+const cors = require("cors")
 
+const uri = "mongodb://hetsoni:1234@127.0.0.1:27017/IMS?authSource=admin"
 
 //creating a server
 const server = libExpress()
+
+server.use(cors()) //We do this to allow Cross Origin Resource Sharing, to keep BE open to requests from any platform
+
+mongoose.connect(uri)
+    .then(() => console.log("DB Connection Successful"))
+    .catch((err) => console.error("Connection Error:", err));
+
 
 
 //making api "/users" accept post method request
@@ -18,9 +28,25 @@ server.post("/users",(req,res) => {
     res.send("User Created")
 })
 
+//we need to send a response to FE when it request
+//there are two ways we can send whole webpage or just the data
+//if we send webpage from BE then is SSR (Server Side Rendering)
+//If we send only data then on client the webpage will be created then it is called CSR (Client Side Rendering)
 server.get("/users",(req,res) => {
     console.log("user get")
-    res.send("User Get")
+   // res.send("User Get")  We use .send to respond with entire webpage SSR 
+   //But we are using CSR so we'll only send the data
+
+   //Our FE will use fetch() command in js, To send data from BE to FE we'll use 'json'
+   
+   res.json([
+    {"name" : "u1"},
+    {"name" : "u2"},
+    {"name" : "u3"},
+    {"name" : "u4"},
+    {"name" : "u5"},
+    {"name" : "u6"}
+   ])
 })
 
 // '/players' API

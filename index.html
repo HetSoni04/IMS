@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Management System</title>
+
+    <script>
+        //We put this in head section as when a page is laoded head is given more priority and we want to fetch data as soon as we load
+        //the data, same goes for CSS too
+
+        //Now we fetch data from BE
+        //fetch("http://127.0.0.1:8000/users",(data)=>{}) data will be stored in arrow function 
+        // fetching data will take time so we'll use .then()
+        //after data is recieved it needs to be converted to json so that js can work with so .json(), that take time so again .then()
+
+        fetch("http://127.0.0.1:8000/users").then(data => data.json() ).then(finalData =>{
+            //console.log(finalData)
+
+            for(let i=0;i<finalData.length;i++){
+                document.getElementById("userlist").innerHTML += "<li>" + finalData[i].name + "</li>"
+            }
+        })
+        
+
+    </script>
+</head>
+<body>
+    <h1>Users List</h1>
+    <hr/>
+    <br/>
+    <ul id="userlist">
+
+    </ul>
+</body>
+</html>
